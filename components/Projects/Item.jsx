@@ -26,14 +26,12 @@ export function Item({ id, setProjectId }) {
           bottom: 0,
           left: '50%',
           transform: 'translateX(-50%)',
-          width: '100%',
-          maxWidth: '990px',
+          width: '100vw',
+          maxWidth: '100vw',
         }}
         className='overlay'
         onClick={() => setProjectId(null)}
-      >
-        <Button>Close</Button>
-      </motion.div>
+      ></motion.div>
       <div className='card-content-container open'>
         <motion.div className='card-content' layoutId={`card-container-${id}`}>
           <motion.div

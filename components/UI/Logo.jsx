@@ -104,13 +104,13 @@ export default function Logo() {
           viewBox='0 0 185.41 41.49'
           initial={{
             opacity: 0,
-            x: -1000,
+            x: -100,
           }}
           animate={{
             opacity: 1,
             x: 0,
             transition: {
-              duration: 1,
+              duration: 0.2,
               delay: 0.5,
             },
           }}

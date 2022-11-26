@@ -1,9 +1,13 @@
 import { Box } from '@chakra-ui/react'
 import Head from 'next/head'
+import { Suspense } from 'react'
+import Hero from '../components/Hero/Hero'
 import Intro from '../components/Intro/Intro'
-import Projects, { Store } from '../components/Projects/Projects'
+import Projects from '../components/Projects/Projects'
+import GoToButton from '../components/UI/GoToButton'
 
 export default function Home() {
+
   return (
     <Box mt={['170px', '170px', '70px']}>
       <Head>
@@ -14,7 +18,11 @@ export default function Home() {
       <main className='main'>
         <Intro />
         <Projects />
+         <Hero baseVelocity={-10}>react node express mongodb shopify hydrogen nextjs</Hero>
       </main>
+      <Suspense>
+        <GoToButton/>
+      </Suspense>
     </Box>
   )
 }

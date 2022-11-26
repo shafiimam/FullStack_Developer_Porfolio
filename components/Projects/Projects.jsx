@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
-import { AnimateSharedLayout, AnimatePresence } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
 import { Item } from './Item';
 import { List } from './List';
-import { motion } from 'framer-motion';
-import { Box } from '@chakra-ui/react';
+import { Box, useOutsideClick, Text } from '@chakra-ui/react';
 function Store() {
   const [id, setProjectId] = useState();
+  const ref = useRef();
   const imageHasLoaded = true;
-  console.log('project id selected', id);
+  useOutsideClick({
+    ref: ref,
+    handler: () => setProjectId(null),
+  });
+
   return (
     <>
       <List selectedId={id} setProjectId={setProjectId} />
       <AnimatePresence>
         {id && imageHasLoaded && (
-          <Item id={id} key='item' setProjectId={setProjectId} />
+          <Item id={id} key='item' setProjectId={setProjectId} ref={ref} />
         )}
       </AnimatePresence>
     </>
@@ -22,15 +26,17 @@ function Store() {
 
 export default function Projects() {
   return (
-    <Box
-      m={['10% 2%', '0 0%', '15% 15%']}
-      p={['0 20px', '0 40px']}
-      id='intro'
-      overflow={['hidden', 'hidden', 'hidden', 'hidden', 'hidden']}
-    >
-      <AnimateSharedLayout type='crossfade'>
-        <Store />
-      </AnimateSharedLayout>
-    </Box>
+    <motion.div id='projects'>
+      <Box
+        m={['10% 2%', '0 0%', '15% 15%']}
+        id='intro'
+        overflow={['hidden', 'hidden', 'hidden', 'hidden', 'hidden']}
+      >
+        <AnimateSharedLayout type='crossfade'>
+          <Text as='h2'>My Projects</Text>
+          <Store />
+        </AnimateSharedLayout>
+      </Box>
+    </motion.div>
   );
 }

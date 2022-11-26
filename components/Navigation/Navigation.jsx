@@ -48,7 +48,6 @@ export default function Navigation() {
     }
   };
   const controlShow = () => {
-    console.log('resizing', window.innerWidth);
     if (window.innerWidth < 768) {
       setIsMobile(true);
     } else {
@@ -73,7 +72,7 @@ export default function Navigation() {
           <Logo />
           <motion.nav
             initial={false}
-            animate={isOpen ? 'open' : 'closed'}
+            whileInView={isOpen ? 'open' : 'closed'}
             custom={height}
             ref={containerRef}
           >
@@ -127,8 +126,15 @@ export default function Navigation() {
                     scale: 1.2,
                   }}
                   className='nav-link'
+                  onClick={() => {
+                    window.scrollTo({
+                      top:
+                        document.getElementById(links[link])?.offsetTop + 100,
+                      behavior: 'smooth',
+                    });
+                  }}
                 >
-                  <Link href={links[link]}>{link}</Link>
+                  <span>{link}</span>
                 </motion.div>
               );
             })}
@@ -190,5 +196,5 @@ const links = {
   Home: '/',
   About: 'about',
   Projects: 'projects',
-  Blogs: '/blogs',
+  Blogs: 'blogs',
 };

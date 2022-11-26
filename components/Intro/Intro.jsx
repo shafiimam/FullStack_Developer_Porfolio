@@ -1,7 +1,15 @@
-import { Box, Flex, Text, useColorMode } from '@chakra-ui/react';
+import {
+  Box,
+  Text,
+  chakra,
+  shouldForwardProp,
+  useColorMode,
+} from '@chakra-ui/react';
 import React from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, isValidMotionProp } from 'framer-motion';
 import DP from './DP';
+import Hero from '../Hero/Hero';
+
 export default function Intro() {
   const { colorMode } = useColorMode();
   const variants = {

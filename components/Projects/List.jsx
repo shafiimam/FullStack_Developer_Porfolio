@@ -3,12 +3,12 @@ import { items } from './data';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import pImg from '../../assets/a.jpg';
+import { Image } from '@chakra-ui/react';
 function Card({ id, title, category, theme, setProjectId }) {
   return (
     <li
       className={`card ${theme}`}
       onClick={() => {
-        console.log('setting id');
         setProjectId(id);
       }}
     >
@@ -18,7 +18,7 @@ function Card({ id, title, category, theme, setProjectId }) {
             className='card-image-container'
             layoutId={`card-image-container-${id}`}
           >
-            <img className='card-image' src='a.jpg' alt='' />
+            <Image className='card-image' src='a.jpg' alt='' />
           </motion.div>
           <motion.div
             className='title-container'
