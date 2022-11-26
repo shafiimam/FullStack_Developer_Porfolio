@@ -32,6 +32,16 @@ export const MobileNav = () => {
       },
     },
   };
+  const handleNavigation = (element) => {
+    console.log('scrolling to', element);
+    window.scrollTo({
+      top: document.getElementById(element)?.offsetTop + 100,
+      behavior: 'smooth',
+    });
+    setTimeout(() => {
+      toggleOpen();
+    }, 300);
+  };
   return (
     <motion.nav
       initial={false}
@@ -40,7 +50,7 @@ export const MobileNav = () => {
       ref={containerRef}
     >
       <motion.div className='background' variants={sidebar} />
-      <MobileNavigationItems />
+      <MobileNavigationItems handleNavigation={handleNavigation} />
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>
   );

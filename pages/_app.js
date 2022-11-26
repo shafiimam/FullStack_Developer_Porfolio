@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
     <ChakraProvider theme={theme}>
       <AnimatePresence exitBeforeEnter >
         <Navigation />
-        <Component {...pageProps} />
+         <Component {...pageProps} />
       </AnimatePresence>
     </ChakraProvider>
   </React.StrictMode>

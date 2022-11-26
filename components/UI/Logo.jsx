@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import theme from '../../theme';
 export default function Logo() {
-  console.log(theme);
   const { colorMode } = useColorMode();
   const [isMobile, setIsMobile] = useState(false);
   const svgFill =
@@ -52,10 +51,11 @@ export default function Logo() {
   return (
     <Box
       sx={{
-        position: 'relative',
+        position: isMobile ? 'absolute' : 'relative',
         height: '100px',
         width: '100px',
         zIndex: 1,
+        marginTop: '20px',
       }}
       className='shafi-logo'
     >

@@ -19,7 +19,7 @@ const variants = {
     },
   },
 };
-export const MenuItem = ({ i, links }) => {
+export const MenuItem = ({ i, links, handleNavigation }) => {
   const { colorMode } = useColorMode();
   return (
     <motion.li
@@ -29,6 +29,7 @@ export const MenuItem = ({ i, links }) => {
       style={{
         color: colorMode === 'light' ? 'black' : 'white',
       }}
+      onClick={() => handleNavigation(links[i])}
     >
       <Link href={links[i]}>{i}</Link>
     </motion.li>

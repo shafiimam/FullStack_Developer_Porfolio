@@ -43,6 +43,10 @@ export default function Intro() {
       },
     },
   };
+  const ChakraBox = chakra(motion.div, {
+    shouldForwardProp: (prop) =>
+      isValidMotionProp(prop) || shouldForwardProp(prop),
+  });
   return (
     <AnimatePresence exitBeforeEnter>
       <Box
@@ -50,15 +54,16 @@ export default function Intro() {
         p={['0 20px', '0 40px']}
         id='intro'
         display='flex'
+        flexFlow={['column', 'column', 'row-reverse']}
+        flexDir={['column', 'column', 'row']}
         overflow={['hidden', 'hidden', 'hidden', 'hidden', 'hidden']}
+        gap='20px'
       >
-        <motion.div
+        <ChakraBox
           variants={containerVariants}
           initial='hidden'
           animate='visible'
-          style={{
-            width: '60%',
-          }}
+          width={['100%', '100%', '50%']}
         >
           <Text
             as={motion.p}
@@ -78,8 +83,8 @@ export default function Intro() {
               fontSize: '2em',
               background:
                 '-webkit-linear-gradient(0deg, #0b77d6 0%, #e00d57 66%)',
-              '-webkit-background-clip': 'text',
-              '-webkit-text-fill-color': 'transparent',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
               marginBottom: '10px',
             }}
           >
@@ -112,10 +117,10 @@ export default function Intro() {
             as={motion.p}
             variants={variants}
             sx={{
-              fontSize: '1.2em',
+              fontSize: ['1.2em', '1.2em', '1.5em'],
               color:
                 colorMode === 'dark' ? 'brand.light.200' : 'brand.dark.100',
-              width: '60%',
+              width: ['100%', '100%', '80%'],
             }}
           >
             I am a full stack engineer specializing in building amazing web
@@ -127,14 +132,10 @@ export default function Intro() {
             </Text>
             .
           </Text>
-        </motion.div>
-        <motion.div
-          style={{
-            width: '40%',
-          }}
-        >
+        </ChakraBox>
+        <Box width={['100%', '100%', '50%']} height={['500px', '500px']}>
           <DP />
-        </motion.div>
+        </Box>
       </Box>
     </AnimatePresence>
   );

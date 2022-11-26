@@ -65,6 +65,13 @@ export default function Navigation() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
+
+  const handleNavigation = () => {
+    window.scrollTo({
+      top: document.getElementById(links[link])?.offsetTop + 100,
+      behavior: 'smooth',
+    });
+  };
   return (
     <AnimatePresence exitBeforeEnter>
       {isMobile ? (
@@ -126,13 +133,7 @@ export default function Navigation() {
                     scale: 1.2,
                   }}
                   className='nav-link'
-                  onClick={() => {
-                    window.scrollTo({
-                      top:
-                        document.getElementById(links[link])?.offsetTop + 100,
-                      behavior: 'smooth',
-                    });
-                  }}
+                  onClick={handleNavigation}
                 >
                   <span>{link}</span>
                 </motion.div>

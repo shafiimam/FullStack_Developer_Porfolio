@@ -11,7 +11,7 @@ const variants = {
   },
 };
 
-export const MobileNavigationItems = () => (
+export const MobileNavigationItems = ({ handleNavigation }) => (
   <motion.ul
     variants={variants}
     style={{
@@ -23,7 +23,13 @@ export const MobileNavigationItems = () => (
     }}
   >
     {Object.keys(links).map((i, index) => (
-      <MenuItem i={i} index={index} key={i} links={links} />
+      <MenuItem
+        i={i}
+        index={index}
+        key={i}
+        links={links}
+        handleNavigation={handleNavigation}
+      />
     ))}
   </motion.ul>
 );

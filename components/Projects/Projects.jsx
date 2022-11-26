@@ -30,7 +30,7 @@ export default function Projects() {
       <Box
         m={['10% 2%', '0 0%', '15% 15%']}
         id='intro'
-        overflow={['hidden', 'hidden', 'hidden', 'hidden', 'hidden']}
+        overflow={['hidden', 'hidden', 'hidden']}
       >
         <AnimateSharedLayout type='crossfade'>
           <Text as='h2'>My Projects</Text>
