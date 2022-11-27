@@ -9,7 +9,7 @@ import {
   useAnimationFrame,
 } from 'framer-motion';
 import { wrap } from '@motionone/utils';
-import { useColorMode } from '@chakra-ui/react';
+import { Text, useColorMode } from '@chakra-ui/react';
 export default function Hero({ children, baseVelocity = -10 }) {
   const baseX = useMotionValue(1);
   const { scrollY } = useScroll();
@@ -61,15 +61,34 @@ export default function Hero({ children, baseVelocity = -10 }) {
           overflow: 'hidden',
         }}
       >
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
+        <Text as='span' sx={spanStyles}>
+          {children}
+        </Text>
+        <Text as='span' sx={spanStyles}>
+          {children}
+        </Text>
+        <Text as='span' sx={spanStyles}>
+          {children}
+        </Text>
+        <Text as='span' sx={spanStyles}>
+          {children}
+        </Text>
+        <Text as='span' sx={spanStyles}>
+          {children}
+        </Text>
+        <Text as='span' sx={spanStyles}>
+          {children}
+        </Text>
+        <Text as='span' sx={spanStyles}>
+          {children}
+        </Text>
+        <Text as='span' sx={spanStyles}>
+          {children}
+        </Text>
       </motion.div>
     </div>
   );
 }
+const spanStyles = {
+  fontSize: ['1.2rem', '2rem', '2.5rem', '3rem', '3.5rem'],
+};

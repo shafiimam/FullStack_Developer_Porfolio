@@ -366,4 +366,13 @@ code {
 .parallax span {
   display: block;
   margin-right: 30px;
+  text-shadow: -1px -1px 0 rgb(202 25 25 / 50%), 2px 2px 0 rgb(20 196 174 / 25%),
+    3px 3px 3px rgb(13 90 176 / 50%), 10px 10px 20px rgb(255 255 255 / 50%),
+    20px 40px 40px rgb(255 255 255 / 50%);
+}
+
+.rectangle {
+  text-shadow: -1px -1px 0 rgb(202 25 25 / 50%), 1px 1px 0 rgb(20 196 174 / 25%),
+    3px 3px 3px rgb(13 90 176 / 50%), 10px 10px 20px rgb(255 255 255 / 50%),
+    20px 40px 40px rgb(255 255 255 / 50%);
 }

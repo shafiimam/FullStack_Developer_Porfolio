@@ -26,12 +26,22 @@ export const MenuItem = ({ i, links, handleNavigation }) => {
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      style={{
+      sx={{
         color: colorMode === 'light' ? 'black' : 'white',
+        fontSize: '1.5rem',
+        textAlign: 'center',
       }}
       onClick={() => handleNavigation(links[i])}
     >
-      <Link href={links[i]}>{i}</Link>
+      <Link
+        href={links[i]}
+        style={{
+          textDecoration: 'none',
+          textAlign: 'center',
+        }}
+      >
+        {i}
+      </Link>
     </motion.li>
   );
 };

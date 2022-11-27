@@ -18,8 +18,7 @@ export const MobileNavigationItems = ({ handleNavigation }) => (
       padding: '25px',
       position: 'relative',
       top: '120px',
-      right: '100px',
-      width: '230px',
+      width: '100%',
     }}
   >
     {Object.keys(links).map((i, index) => (

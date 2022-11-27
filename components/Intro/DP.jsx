@@ -28,7 +28,6 @@ const boxVariants = {
   visible: {
     opacity: 1,
     scale: [0, 1],
-    boxShadow: '5px 5px 10px rgb(0,0,0)',
   },
 };
 const ChakraBox = chakra(motion.div, {
@@ -38,8 +37,8 @@ const ChakraBox = chakra(motion.div, {
 export default function DP() {
   return (
     <AnimatePresence exitBeforeEnter>
-      <motion.div
-        style={{
+      <ChakraBox
+        sx={{
           position: 'relative',
           width: '100%',
         }}
@@ -47,79 +46,134 @@ export default function DP() {
         initial='hidden'
         animate='visible'
       >
-        <motion.div style={rect1} variants={boxVariants}>
-          Amazing
-        </motion.div>
-        <motion.div style={rect2} variants={boxVariants}>
-          Productive
-        </motion.div>
-        <motion.div style={rect3} variants={boxVariants}>
-          Efficient
-        </motion.div>
-        <motion.div
-          style={rect4}
+        <ChakraBox
+          className='rectangle'
+          sx={rect1}
           variants={boxVariants}
           whileHover={{
-            scale: 1.1,
+            x: 380,
+            boxShadow: '0px 20px 40px 0px rgba(0, 0, 0, 0.25)',
+            transition: {
+              type: 'spring',
+              stiffness: 400,
+              damping: 50,
+              duration: 1,
+            },
+          }}
+        >
+          Amazing
+        </ChakraBox>
+        <ChakraBox
+          className='rectangle'
+          sx={rect2}
+          variants={boxVariants}
+          whileHover={{
+            x: 350,
+            boxShadow: '0px 20px 40px 0px rgba(0, 0, 0, 0.25)',
+            transition: {
+              type: 'spring',
+              stiffness: 400,
+              damping: 50,
+              duration: 1,
+            },
+          }}
+        >
+          Productive
+        </ChakraBox>
+        <ChakraBox
+          className='rectangle'
+          sx={rect3}
+          variants={boxVariants}
+          whileHover={{
+            x: 350,
+            boxShadow: '0px 20px 40px 0px rgba(0, 0, 0, 0.25)',
+            transition: {
+              type: 'spring',
+              stiffness: 400,
+              damping: 50,
+              duration: 1,
+            },
+          }}
+        >
+          Efficient
+        </ChakraBox>
+        <ChakraBox
+          className='rectangle'
+          sx={rect4}
+          variants={boxVariants}
+          whileHover={{
+            boxShadow: '0px 20px 40px 0px rgba(0, 0, 0, 0.25)',
           }}
         />
-      </motion.div>
+      </ChakraBox>
     </AnimatePresence>
   );
 }
 
 const rect1 = {
-  width: '100px',
-  height: '100px',
+  width: ['70px', '75px', '100px'],
+  height: ['70px', '75px', '100px'],
   backgroundColor: '#003D5C',
   position: 'absolute',
   borderRadius: '10px',
-  fontSize: '1.25em',
+  fontSize: ['0.5rem', '1rem', '1.5rem'],
   textAlign: 'center',
   textTransform: 'uppercase',
-  marginTop: '10px',
+  marginTop: ['0', '0', '0', '0', '0'],
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };
 
 const rect2 = {
-  width: '150px',
-  height: '150px',
+  width: ['80px', '120px', '150px'],
+  height: ['80px', '120px', '150px'],
   backgroundColor: '#A5A5A5',
   position: 'absolute',
   borderRadius: '10px',
-  left: '50px',
-  top: '50px',
-  fontSize: '1.25em',
+  left: ['18px', '18px', '21px'],
+  top: ['10px', '10px', '10px'],
+  fontSize: ['0.5rem', '1.5rem', '1.5rem'],
   textAlign: 'center',
   textTransform: 'uppercase',
   marginTop: '10px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };
 
 const rect3 = {
-  width: '200px',
-  height: '200px',
-  backgroundColor: '#00141F',
+  width: ['120px', '150px', '200px'],
+  height: ['120px', '150px', '200px'],
+  backgroundColor: '#cfcfcf',
   position: 'absolute',
   borderRadius: '10px',
-  left: '100px',
-  top: '100px',
-  fontSize: '1.25em',
+  left: ['35px', '35px', '40px'],
+  top: ['28px', '28px', '33px'],
+  fontSize: ['0.5rem', '1.5rem', '1.5rem'],
   textAlign: 'center',
   textTransform: 'uppercase',
   marginTop: '10px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };
 
 const rect4 = {
-  width: '350px',
-  height: '350px',
+  width: ['180px', '200px', '300px'],
+  height: ['180px', '200px', '300px'],
   backgroundColor: '#CED4DA',
-  position: 'absolute',
+  position: 'relative',
   borderRadius: '10px',
-  left: '150px',
-  top: '150px',
-  // backgroundImage: 'url(./shafi-dp.png)',
+  left: ['53px', '53px', '60px'],
+  top: ['48px', '48px', '66px'],
+  backgroundImage: 'url(./shafi-dp.png)',
   backgroundSize: 'cover',
   fontSize: '1.25em',
   textAlign: 'center',
   textTransform: 'uppercase',
   marginTop: '10px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };
