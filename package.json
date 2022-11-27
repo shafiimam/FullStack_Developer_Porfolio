@@ -24,5 +24,8 @@
     "react-lorem-ipsum": "^1.4.10",
     "react-router": "^6.4.3",
     "react-router-dom": "^6.4.3"
+  },
+  "devDependencies": {
+    "@klarr-agency/circum-icons-react": "^2.0.1"
   }
 }

@@ -116,7 +116,7 @@ const rect4 = {
   borderRadius: '10px',
   left: '150px',
   top: '150px',
-  backgroundImage: 'url(./shafi-dp.png)',
+  // backgroundImage: 'url(./shafi-dp.png)',
   backgroundSize: 'cover',
   fontSize: '1.25em',
   textAlign: 'center',

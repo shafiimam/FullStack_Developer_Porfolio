@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Box, Button, Text, useColorMode } from '@chakra-ui/react';
-import { useSize } from '@chakra-ui/react-use-size';
 import { AnimatePresence, motion, useCycle } from 'framer-motion';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import Link from 'next/link';
 import Logo from '../UI/Logo';
-import { MobileNavigation } from './MobileNavigationItems';
-import { MenuToggle } from './MenuToggle';
 import { useDimensions } from './use-dimension';
 import { MobileNav } from './Mobilenav';
+import DarkIcon from '../UI/DarkIcon';
+import LightIcon from '../UI/LightICon';
 const sidebar = {
   open: (height = 1000) => ({
     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
@@ -48,7 +46,7 @@ export default function Navigation() {
     }
   };
   const controlShow = () => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth <= 769) {
       setIsMobile(true);
     } else {
       setIsMobile(false);
@@ -66,7 +64,8 @@ export default function Navigation() {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
-  const handleNavigation = () => {
+  const handleNavigation = (links, link) => {
+    console.log(links, link);
     window.scrollTo({
       top: document.getElementById(links[link])?.offsetTop + 100,
       behavior: 'smooth',
@@ -107,13 +106,12 @@ export default function Navigation() {
             overflow: 'hidden',
           }}
         >
-          <Box w='70%' ml='10%'>
+          <Box mr='auto'>
             <Logo />
           </Box>
           <Box
             sx={{
               display: 'flex',
-              width: '30%',
             }}
           >
             {Object.keys(links).map((link, index) => {
@@ -133,42 +131,16 @@ export default function Navigation() {
                     scale: 1.2,
                   }}
                   className='nav-link'
-                  onClick={handleNavigation}
+                  onClick={() => handleNavigation(links, link)}
                 >
                   <span>{link}</span>
                 </motion.div>
               );
             })}
             {colorMode === 'light' ? (
-              <motion.button
-                variants={variants}
-                initial='hidden'
-                animate='visible'
-                exit='exit'
-                onClick={toggleColorMode}
-                style={{
-                  margin: '0 1rem',
-                  cursor: 'pointer',
-                  position: 'relative',
-                }}
-              >
-                <MoonIcon />
-              </motion.button>
+              <DarkIcon toggleColorMode={toggleColorMode} />
             ) : (
-              <motion.button
-                variants={variants}
-                initial='hidden'
-                animate='visible'
-                exit='exit'
-                onClick={toggleColorMode}
-                style={{
-                  margin: '0 1rem',
-                  cursor: 'pointer',
-                  position: 'relative',
-                }}
-              >
-                <SunIcon />
-              </motion.button>
+              <LightIcon toggleColorMode={toggleColorMode} />
             )}
           </Box>
         </motion.nav>

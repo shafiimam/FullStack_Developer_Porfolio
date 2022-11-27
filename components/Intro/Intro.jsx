@@ -133,7 +133,7 @@ export default function Intro() {
             .
           </Text>
         </ChakraBox>
-        <Box width={['100%', '100%', '50%']} height={['500px', '500px']}>
+        <Box width={['100%', '100%', '50%']} height={['600px', '600px']}>
           <DP />
         </Box>
       </Box>
