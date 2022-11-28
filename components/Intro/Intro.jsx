@@ -21,7 +21,7 @@ export default function Intro() {
       opacity: [0, 0.5, 1, 0.5, 1],
       x: [100, 0, 100, 0],
       transition: {
-        duration: 0.5,
+        duration: 1,
         delay: 1,
       },
     },
@@ -36,7 +36,7 @@ export default function Intro() {
       transition: {
         type: 'spring',
         when: 'beforeChildren',
-        delayChildren: 0.5,
+        delayChildren: 2,
         mass: 0.8,
         damping: 8,
         staggerChildren: 0.2,
@@ -50,14 +50,16 @@ export default function Intro() {
   return (
     <AnimatePresence exitBeforeEnter>
       <Box
-        m={['10% 2%', '0 0%', '15% 15%']}
+        m={['10% 2%', '0 0%', '0% 15%']}
+        mt={['10%', '10%', '10%']}
         p={['0 20px', '0 40px']}
         id='intro'
         display='flex'
         flexFlow={['column', 'column', 'row-reverse']}
         flexDir={['column', 'column', 'row']}
-        overflow={['hidden', 'hidden', 'hidden', 'hidden', 'hidden']}
+        height={['600px', '600px', '600px']}
         gap='20px'
+        overflow={['hidden', 'hidden', 'hidden']}
       >
         <ChakraBox
           variants={containerVariants}
@@ -105,7 +107,7 @@ export default function Intro() {
             as={motion.p}
             variants={variants}
             sx={{
-              fontSize: '3em',
+              fontSize: ['1.5em', '1.5em', '2em', '2em', '2em'],
               color:
                 colorMode === 'dark' ? 'brand.light.300' : 'brand.dark.300',
               lineHeight: '1.2em',
@@ -133,7 +135,7 @@ export default function Intro() {
             .
           </Text>
         </ChakraBox>
-        <Box width={['100%', '100%', '50%']} height={['600px', '600px']}>
+        <Box width={['100%', '100%', '50%']} height={['400px', '600px']} display='flex' justifyContent='center'>
           <DP />
         </Box>
       </Box>

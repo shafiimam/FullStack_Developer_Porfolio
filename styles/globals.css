@@ -7,6 +7,7 @@ main {
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  z-index: 1;
 }
 .shafi-imam svg {
   height: 100px;
@@ -158,6 +159,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  margin: 0 auto !important;
 }
 
 .card {
@@ -182,7 +184,10 @@ li {
   padding-right: 0;
 }
 
-.card-content-container {
+.card-content-container:hover {
+  -webkit-box-shadow: inset 0px 0px 38px -10px rgba(87, 81, 87, 0.9);
+  -moz-box-shadow: inset 0px 0px 38px -10px rgba(87, 81, 87, 0.9);
+  box-shadow: inset 0px 0px 38px -10px rgba(87, 81, 87, 0.9);
 }
 
 .card-content-container.open {
@@ -190,7 +195,7 @@ li {
   left: 0;
   right: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 15;
   overflow: hidden;
   padding: 40px 0;
 }
@@ -198,7 +203,7 @@ li {
 .card-content {
   pointer-events: auto;
   position: relative;
-  border-radius: 20px;
+  border-radius: 10px;
   background: #1c1c1e;
   overflow: hidden;
   width: 100%;
@@ -226,8 +231,7 @@ li {
   top: 0;
   left: 0;
   overflow: hidden;
-  height: 420px;
-  width: 100vw;
+  height: 100%;
 }
 
 .open .card-image-container,
@@ -267,12 +271,6 @@ li {
   transform: translateX(-50%);
 }
 
-.content-container {
-  padding: 460px 35px 35px 35px;
-  max-width: 700px;
-  width: 90vw;
-}
-
 p {
   color: #9d9ca1;
   font-size: 20px;
@@ -309,6 +307,7 @@ p {
 
   .card-content-container.open {
     padding: 0;
+    top: 100px;
   }
 }
 

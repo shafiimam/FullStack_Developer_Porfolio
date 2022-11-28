@@ -46,6 +46,9 @@ const styles = {
       color: props.colorMode === 'dark' ? props.theme.colors.brand.light['300'] : props.theme.colors.brand.dark['500'],
       backgroundColor: props.colorMode === 'dark' ? props.theme.colors.brand.dark['200'] : props.theme.colors.brand.light['200'],
       lineHeight: 'tall',
+      margin: 0,
+      padding: 0,
+      boxSizing: 'border-box',
     },
     a: {
       color: props.colorMode === 'dark' ? props.theme.colors.brand.light['500'] : props.theme.colors.brand.gray['500'],

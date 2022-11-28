@@ -7,6 +7,7 @@ import { useDimensions } from './use-dimension';
 import { MobileNav } from './Mobilenav';
 import DarkIcon from '../UI/DarkIcon';
 import LightIcon from '../UI/LightICon';
+import { AiFillGithub } from 'react-icons/ai';
 const sidebar = {
   open: (height = 1000) => ({
     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
@@ -104,6 +105,7 @@ export default function Navigation() {
             backdropFilter: 'blur(10px)',
             alignItems: 'center',
             overflow: 'hidden',
+            zIndex:15
           }}
         >
           <Box mr='auto'>
@@ -117,7 +119,7 @@ export default function Navigation() {
             {Object.keys(links).map((link, index) => {
               return (
                 <motion.div
-                  key={index}
+                  key={Math.random()*100}
                   style={{
                     margin: '0 1rem',
                     cursor: 'pointer',
@@ -137,6 +139,9 @@ export default function Navigation() {
                 </motion.div>
               );
             })}
+            <Box className='socials' >
+              <AiFillGithub/>
+            </Box>
             {colorMode === 'light' ? (
               <DarkIcon toggleColorMode={toggleColorMode} />
             ) : (
@@ -166,7 +171,6 @@ const variants = {
   },
 };
 const links = {
-  Home: '/',
   About: 'about',
   Projects: 'projects',
   Blogs: 'blogs',

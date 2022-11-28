@@ -27,9 +27,9 @@ const boxVariants = {
   },
   visible: {
     opacity: 1,
-   scale: [1, 2, 2, 1, 1],
-      rotate: [0, 0, 270, 0],
-      borderRadius: ["20%", "20%", "50%", "50%", "10%"],
+    scale: [1, 1.5, 1.5, 1, 1],
+    rotate: [0, 0, 270, 0],
+    borderRadius: ["20%", "20%", "50%", "50%", "5%"],
   },
 };
 const ChakraBox = chakra(motion.div, {
@@ -42,7 +42,8 @@ export default function DP() {
       <ChakraBox
         sx={{
           position: 'relative',
-          width: '100%',
+          width: '400px',
+          zIndex:10
         }}
         variants={variants}
         initial='hidden'
@@ -152,7 +153,7 @@ const rect3 = {
   borderRadius: '10px',
   left: ['35px', '35px', '40px'],
   top: ['28px', '28px', '33px'],
-  fontSize: ['0.5rem', '1.5rem', '1.5rem'],
+  fontSize: ['0.5rem', '1.5rem', '2rem'],
   textAlign: 'center',
   textTransform: 'uppercase',
   marginTop: '10px',

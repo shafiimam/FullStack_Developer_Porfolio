@@ -47,22 +47,6 @@ export const items = [
     pointOfInterest: 60,
     backgroundColor: "#282F49"
   },
-  // Photo by Yerlin Matu on Unsplash
-  {
-    id: "e",
-    category: "Cats",
-    title: "Yes, They Are Sociopaths",
-    pointOfInterest: 200,
-    backgroundColor: "#AC7441"
-  },
-  // Photo by Ali Abdul Rahman on Unsplash
-  {
-    id: "b",
-    category: "Holidays",
-    title: "Seriously the Only Escape is the Stratosphere",
-    pointOfInterest: 260,
-    backgroundColor: "#CC555B"
-  }
 ];
 
 export const openSpring = { type: "spring", stiffness: 200, damping: 30 };

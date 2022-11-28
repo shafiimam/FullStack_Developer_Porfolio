@@ -5,19 +5,31 @@ import { Box, Image, ListItem, UnorderedList } from '@chakra-ui/react';
 function Card({ id, title, category, theme, setProjectId }) {
   return (
     <ListItem
+      as={motion.div}
       className={`card ${theme}`}
       onClick={() => {
         setProjectId(id);
       }}
+      sx={{
+        height:['250px','400px','500px'],
+        cursor: 'pointer',
+      }}
+      
     >
       <Box
+        as={motion.div}
         sx={{
-          width: ['80%', '80%', '80%', '100%', '100%'],
-          height: ['50%', '80%', '80%', '100%', '100%'],
+          width: ['100%'],
+          height: ['100%'],
           position: 'relative',
           display: 'block',
           pointerEvents: 'none',
-          margin: '0 auto',
+          margin:['30px','0','0'],
+          borderRadius: '10px',
+        }}
+        whileHover={{
+          scale: 1.01,
+          boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'
         }}
         className='card-content-container'
       >

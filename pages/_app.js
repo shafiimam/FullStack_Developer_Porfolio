@@ -8,10 +8,8 @@ import React from 'react'
 function MyApp({ Component, pageProps }) {
   return <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <AnimatePresence exitBeforeEnter >
         <Navigation />
          <Component {...pageProps} />
-      </AnimatePresence>
     </ChakraProvider>
   </React.StrictMode>
 

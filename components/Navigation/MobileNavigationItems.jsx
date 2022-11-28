@@ -19,13 +19,17 @@ export const MobileNavigationItems = ({ handleNavigation }) => (
       position: 'relative',
       top: '120px',
       width: '100%',
+      zIndex: 10,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
     }}
   >
     {Object.keys(links).map((i, index) => (
       <MenuItem
         i={i}
         index={index}
-        key={i}
+        key={Math.random()*100}
         links={links}
         handleNavigation={handleNavigation}
       />
