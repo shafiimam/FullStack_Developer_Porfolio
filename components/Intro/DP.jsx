@@ -42,8 +42,6 @@ export default function DP() {
       <ChakraBox
         sx={{
           position: 'relative',
-          width: '400px',
-          zIndex:10
         }}
         variants={variants}
         initial='hidden'

@@ -50,9 +50,9 @@ export default function Intro() {
   return (
     <AnimatePresence exitBeforeEnter>
       <Box
-        m={['10% 2%', '0 0%', '0% 15%']}
+        m={['10% 2%', '0 0%', '0% 0%']}
         mt={['10%', '10%', '10%']}
-        p={['0 20px', '0 40px']}
+        p={['0 20px', '0 40px', '0 20%']}
         id='intro'
         display='flex'
         flexFlow={['column', 'column', 'row-reverse']}
