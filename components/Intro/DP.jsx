@@ -27,7 +27,9 @@ const boxVariants = {
   },
   visible: {
     opacity: 1,
-    scale: [0, 1],
+   scale: [1, 2, 2, 1, 1],
+      rotate: [0, 0, 270, 0],
+      borderRadius: ["20%", "20%", "50%", "50%", "10%"],
   },
 };
 const ChakraBox = chakra(motion.div, {
