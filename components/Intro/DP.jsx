@@ -12,8 +12,8 @@ const variants = {
     opacity: 1,
     x: 0,
     transition: {
-      staggerChildren: 0.3,
-      delayChildren: 0.5,
+      staggerChildren: 1,
+      delayChildren: 1,
     },
   },
   exit: {
@@ -29,7 +29,7 @@ const boxVariants = {
     opacity: 1,
     scale: [1, 1.5, 1.5, 1, 1],
     rotate: [0, 0, 270, 0],
-    borderRadius: ["20%", "20%", "50%", "50%", "5%"],
+    borderRadius: ['20%', '20%', '50%', '50%', '5%'],
   },
 };
 const ChakraBox = chakra(motion.div, {
@@ -41,7 +41,7 @@ export default function DP() {
     <AnimatePresence exitBeforeEnter>
       <ChakraBox
         sx={{
-          position: 'relative',
+          position: 'absolute',
         }}
         variants={variants}
         initial='hidden'
@@ -134,7 +134,7 @@ const rect2 = {
   borderRadius: '10px',
   left: ['18px', '18px', '21px'],
   top: ['10px', '10px', '10px'],
-  fontSize: ['0.5rem', '1.5rem', '1.5rem'],
+  fontSize: ['0.5rem', '1rem', '1.5rem'],
   textAlign: 'center',
   textTransform: 'uppercase',
   marginTop: '10px',
@@ -151,7 +151,7 @@ const rect3 = {
   borderRadius: '10px',
   left: ['35px', '35px', '40px'],
   top: ['28px', '28px', '33px'],
-  fontSize: ['0.5rem', '1.5rem', '2rem'],
+  fontSize: ['0.5rem', '1rem', '2rem'],
   textAlign: 'center',
   textTransform: 'uppercase',
   marginTop: '10px',

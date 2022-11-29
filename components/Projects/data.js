@@ -2,18 +2,22 @@ export const items = [
   // Photo by ivan Torres on Unsplash
   {
     id: "c",
-    category: "Pizza",
-    title: "5 Food Apps Delivering the Best of Your City",
-    pointOfInterest: 80,
-    backgroundColor: "#814A0E"
+    category: "Ecmmerce",
+    title: "Pro Shop",
+    image: '/pro-shop.png',
+    description:' This is an ecommerce web application built with React, Node, Express, and MongoDB. It is a full featured shopping cart application with user authentication, admin functionality, and checkout process with PayPal and credit/debit cards.',
+    techStack: {FrontEnd: ['React','Bootstrap'], BackEnd: ['Node','Express','JWT'], Database: ['MongoDB']},
+    preview: 'https://proshopappbyshafiimam.herokuapp.com/'
   },
   // Photo by Dennis Brendel on Unsplash
   {
     id: "f",
-    category: "How to",
-    title: "Arrange Your Apple Devices for the Gram",
-    pointOfInterest: 120,
-    backgroundColor: "#959684"
+    category: "Ecmmerce",
+    title: "Pro Shop",
+    image: '/pro-shop.png',
+    description:' This is an ecommerce web application built with React, Node, Express, and MongoDB. It is a full featured shopping cart application with user authentication, admin functionality, and checkout process with PayPal and credit/debit cards.',
+    techStack: {FrontEnd: ['React','Bootstrap'], BackEnd: ['Node','Express','JWT'], Database: ['MongoDB']},
+    preview: 'https://proshopappbyshafiimam.herokuapp.com/'
   },
   // Photo by Alessandra Caretto on Unsplash
   {

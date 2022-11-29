@@ -44,7 +44,7 @@ export default function Logo() {
     await animationControls.start({
       opacity: 1,
       pathLength: [0, 1],
-      fill: 'none',
+      fill: 'transparent',
     });
     await animationControls.start({
       fill: ['#fffff', svgFill],
@@ -74,7 +74,7 @@ export default function Logo() {
           initial={{
             opacity: 0,
             pathLength: 0,
-            fill: 'none',
+            fill: 'transparent',
           }}
           // animation end state
           animate={animationControls}
@@ -90,7 +90,7 @@ export default function Logo() {
           initial={{
             opacity: 0,
             pathLength: 0,
-            fill: 'none',
+            fill: 'transparent',
           }}
           // animation end state
           animate={animationControls}

@@ -2,7 +2,7 @@ import React from 'react';
 import { items } from './data';
 import { motion } from 'framer-motion';
 import { Box, Image, ListItem, UnorderedList } from '@chakra-ui/react';
-function Card({ id, title, category, theme, setProjectId }) {
+function Card({ id, title, category, theme, setProjectId, image }) {
   return (
     <ListItem
       as={motion.div}
@@ -11,10 +11,14 @@ function Card({ id, title, category, theme, setProjectId }) {
         setProjectId(id);
       }}
       sx={{
-        height:['250px','400px','500px'],
+        height: ['250px', '400px', '500px'],
         cursor: 'pointer',
+        borderRadius: '10px',
       }}
-      
+      whileHover={{
+        scale: 1.01,
+        boxShadow: '0px 20px 40px 0px rgba(0, 0, 0, 0.25)',
+      }}
     >
       <Box
         as={motion.div}
@@ -24,12 +28,8 @@ function Card({ id, title, category, theme, setProjectId }) {
           position: 'relative',
           display: 'block',
           pointerEvents: 'none',
-          margin:['30px','0','0'],
+          margin: ['30px', '0', '0'],
           borderRadius: '10px',
-        }}
-        whileHover={{
-          scale: 1.01,
-          boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'
         }}
         className='card-content-container'
       >
@@ -42,18 +42,26 @@ function Card({ id, title, category, theme, setProjectId }) {
               height='100%'
               width='auto'
               className='card-image'
-              src='a.jpg'
+              src={image}
               alt=''
               objectFit='cover'
             />
           </motion.div>
-          <motion.div
+          <Box
+            as={motion.div}
             className='title-container'
             layoutId={`title-container-${id}`}
+            sx={{
+              position: 'absolute',
+              background: 'rgba(0,0,0,0.5)',
+              borderRadius: '10px',
+              padding: '10px',
+              width: '90px',
+            }}
           >
             <span className='category'>{category}</span>
             <h2>{title}</h2>
-          </motion.div>
+          </Box>
         </motion.div>
       </Box>
       <span></span>
@@ -61,9 +69,9 @@ function Card({ id, title, category, theme, setProjectId }) {
   );
 }
 
-export function List({ selectedId, setProjectId }) {
+export function List({ selectedId, setProjectId, ref }) {
   return (
-    <UnorderedList className='card-list'>
+    <UnorderedList className='card-list' ref={ref}>
       {items.map((card) => (
         <Card
           key={card.id}

@@ -5,13 +5,21 @@ import {
   shouldForwardProp,
   useColorMode,
 } from '@chakra-ui/react';
-import React from 'react';
-import { AnimatePresence, motion, isValidMotionProp } from 'framer-motion';
+import React, { useEffect } from 'react';
+import {
+  AnimatePresence,
+  motion,
+  isValidMotionProp,
+  useAnimation,
+  useScroll,
+} from 'framer-motion';
 import DP from './DP';
 import Hero from '../Hero/Hero';
 
 export default function Intro() {
   const { colorMode } = useColorMode();
+  const controls = useAnimation();
+  const { scrollY } = useScroll();
   const variants = {
     hidden: {
       opacity: 0,
@@ -43,23 +51,50 @@ export default function Intro() {
       },
     },
   };
+
+  const boxVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+    },
+  };
+
   const ChakraBox = chakra(motion.div, {
     shouldForwardProp: (prop) =>
       isValidMotionProp(prop) || shouldForwardProp(prop),
   });
+
+  useEffect(() => {
+    return scrollY.onChange((latest) => {
+      console.log(latest);
+
+      if (latest < 600) {
+        controls.start('visible');
+      }
+      if (latest > 600) {
+        controls.start('hidden');
+      }
+    });
+  }, []);
+
   return (
     <AnimatePresence exitBeforeEnter>
       <Box
+        as={motion.div}
         m={['10% 2%', '0 0%', '0% 0%']}
-        mt={['10%', '10%', '10%']}
+        mt={['10%', '10%', '20%']}
         p={['0 20px', '0 40px', '0 20%']}
         id='intro'
         display='flex'
         flexFlow={['column', 'column', 'row-reverse']}
         flexDir={['column', 'column', 'row']}
-        height={['600px', '600px', '600px']}
+        height={['600px', '600px', '700px']}
         gap='20px'
         overflow={['hidden', 'hidden', 'hidden']}
+        variants={boxVariants}
+        animate={controls}
       >
         <ChakraBox
           variants={containerVariants}
@@ -135,7 +170,12 @@ export default function Intro() {
             .
           </Text>
         </ChakraBox>
-        <Box width={['100%', '100%', '50%']} height={['400px', '600px']} display='flex' justifyContent='center'>
+        <Box
+          width={['100%', '100%', '50%']}
+          height={['400px', '600px']}
+          display='flex'
+          justifyContent='center'
+        >
           <DP />
         </Box>
       </Box>
