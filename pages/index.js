@@ -17,6 +17,7 @@ export default function Home() {
       </Head>
      
        <main className='main'>
+        
         <Intro />
         <Projects />
       </main>
