@@ -1,8 +1,10 @@
 import { Box } from '@chakra-ui/react'
 import Head from 'next/head'
 import { Suspense } from 'react'
+import About from '../components/About/About'
 import Hero from '../components/Hero/Hero'
 import Intro from '../components/Intro/Intro'
+import Play from '../components/Play'
 import Projects from '../components/Projects/Projects'
 import GoToButton from '../components/UI/GoToButton'
 
@@ -17,9 +19,10 @@ export default function Home() {
       </Head>
      
        <main className='main'>
-        
         <Intro />
         <Projects />
+        <About/>
+        <Hero>React MongoDB Node Express Shopify Hydrogen</Hero>
       </main>
        
 

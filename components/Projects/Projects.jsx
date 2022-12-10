@@ -9,7 +9,7 @@ import {
 } from 'framer-motion';
 import { Item } from './Item';
 import { List } from './List';
-import { Box, useOutsideClick, Text, background } from '@chakra-ui/react';
+import { Box, useOutsideClick, Text, useMediaQuery } from '@chakra-ui/react';
 import { useEffect } from 'react';
 function Store() {
   const [id, setProjectId] = useState();
@@ -18,6 +18,10 @@ function Store() {
   const listRef = useRef();
   const { scrollY } = useScroll();
   const controls = useAnimation();
+  const [isLargerThan800] = useMediaQuery('(min-width: 800px)', {
+    ssr: true,
+    fallback: false, // return false on the server, and re-evaluate on the client side
+  });
   const imageHasLoaded = true;
   useOutsideClick({
     ref: ref,
@@ -36,16 +40,22 @@ function Store() {
       },
     },
   };
+
   useEffect(() => {
-    scrollY.onChange((latest) => {
-      if (latest > 700) {
-        controls.start('animate');
-      }
-      if (latest < 700) {
-        controls.start('initial');
-      }
-    });
-  }, [scrollY, controls]);
+    const handleGalleryAnimation = () => {
+      const isMobile = !isLargerThan800;
+      const breakPoint = isMobile ? 300 : 700;
+      scrollY.onChange((latest) => {
+        if (latest > breakPoint) {
+          controls.start('animate');
+        }
+        if (latest < breakPoint) {
+          controls.start('initial');
+        }
+      });
+    };
+    return handleGalleryAnimation();
+  }, [scrollY, controls, isLargerThan800]);
   useEffect(() => {
     setGalleryHeight(listRef?.current?.offsetHeight);
     return () => {
@@ -56,17 +66,18 @@ function Store() {
   const slideAnimationStyles = {
     height: `${galleryHeight + 50}px`,
   };
-  console.log({ listRef, slideAnimationStyles });
+
   return (
     <Box
       as={motion.div}
       sx={{
         height: ['500px', '800px', '800px'],
-        overflow: ['scroll', 'hidden', 'hidden'],
+        overflowY: 'scroll',
+        overflowX: 'hidden',
         alignItems: 'center',
-        overflow: ['scroll', '', ''],
         padding: '20px 40px',
         position: 'relative',
+        // borderRadius: '10px',
       }}
       initial='initial'
       animate={controls}
@@ -90,15 +101,15 @@ function Store() {
 
 export default function Projects() {
   return (
-    <motion.div id='projects'>
-      <Box m={['10% 2%', '0 0%', '0 15%']} p='2'>
-        <LayoutGroup type='crossfade'>
-          <Text as='h2' textAlign='center' p='2' fontSize={'2xl'}>
-            My Projects Gallery
-          </Text>
+    <Box m={['10% 2%', '0 0%', '0 15%']} p='2'>
+      <LayoutGroup type='crossfade'>
+        <Text as='h2' textAlign='center' p='2' fontSize={'2xl'}>
+          My Projects Gallery
+        </Text>
+        <Box borderRadius={'10px'}>
           <Store />
-        </LayoutGroup>
-      </Box>
-    </motion.div>
+        </Box>
+      </LayoutGroup>
+    </Box>
   );
 }

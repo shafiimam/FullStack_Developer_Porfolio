@@ -23,7 +23,7 @@ function Card({ id, title, category, theme, setProjectId, image }) {
       <Box
         as={motion.div}
         sx={{
-          width: ['100%'],
+          width: '100%',
           height: ['100%'],
           position: 'relative',
           display: 'block',
@@ -64,14 +64,13 @@ function Card({ id, title, category, theme, setProjectId, image }) {
           </Box>
         </motion.div>
       </Box>
-      <span></span>
     </ListItem>
   );
 }
 
 export function List({ selectedId, setProjectId, ref }) {
   return (
-    <UnorderedList className='card-list' ref={ref}>
+    <UnorderedList className='card-list' ref={ref} m='0'>
       {items.map((card) => (
         <Card
           key={card.id}

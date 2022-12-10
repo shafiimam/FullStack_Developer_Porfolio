@@ -32,7 +32,7 @@ export function Item({ id, setProjectId }) {
       <Box
         className='card-content-container open'
         zIndex='10'
-        height={['800px', '600px', '900px']}
+        height={['800px', '600px', '100vh']}
         width={['400px', '500px', '700px']}
         m='0 auto'
       >
@@ -75,10 +75,10 @@ export function Item({ id, setProjectId }) {
             as={motion.div}
             className='content-container'
             sx={{
-              padding: '69% 35px 35px 35px',
-              maxWidth: '700px',
+              padding: '66% 35px 35px 35px',
+              maxWidth: '600px',
               width: '90vw',
-              height: ['600px', '800px', 'auto'],
+              height: ['100%', '100%', '100%'],
             }}
             animate
           >
@@ -97,8 +97,8 @@ export function Item({ id, setProjectId }) {
               <Button
                 as={motion.button}
                 sx={{
-                  bottom: '-50px',
                   left: '97%',
+                  boxShadow: '0px 0px 10px rgba(255,255,255,0.2)',
                 }}
                 m={'0'}
                 p='0'
