@@ -66,7 +66,7 @@ export default function Navigation() {
   const { height } = useDimensions(containerRef);
 
   const handleNavigation = (links, link) => {
-    console.log(links, link);
+    // console.log(links, link);
     window.scrollTo({
       top: document.getElementById(links[link])?.offsetTop + 100,
       behavior: 'smooth',
@@ -105,7 +105,7 @@ export default function Navigation() {
             backdropFilter: 'blur(10px)',
             alignItems: 'center',
             overflow: 'hidden',
-            zIndex:15
+            zIndex: 15,
           }}
         >
           <Box mr='auto'>
@@ -119,7 +119,7 @@ export default function Navigation() {
             {Object.keys(links).map((link, index) => {
               return (
                 <motion.div
-                  key={Math.random()*100}
+                  key={Math.random() * 100}
                   style={{
                     margin: '0 1rem',
                     cursor: 'pointer',
@@ -139,8 +139,8 @@ export default function Navigation() {
                 </motion.div>
               );
             })}
-            <Box className='socials' >
-              <AiFillGithub/>
+            <Box className='socials'>
+              <AiFillGithub />
             </Box>
             {colorMode === 'light' ? (
               <DarkIcon toggleColorMode={toggleColorMode} />

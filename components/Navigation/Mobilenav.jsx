@@ -33,7 +33,7 @@ export const MobileNav = () => {
     },
   };
   const handleNavigation = (element) => {
-    console.log('scrolling to', element);
+    // console.log('scrolling to', element);
     toggleOpen();
     setTimeout(() => {
          window.scrollTo({

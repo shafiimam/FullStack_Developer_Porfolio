@@ -101,13 +101,13 @@ function Store() {
 
 export default function Projects() {
   return (
-    <Box m={['10% 2%', '0 0%', '0 15%']} p='2'>
+    <Box m={['2% 2%']} p='2'>
       <LayoutGroup type='crossfade'>
         <Text as='h2' textAlign='center' p='2' fontSize={'2xl'}>
-          My Projects Gallery
+          My Portfolio
         </Text>
         <Box borderRadius={'10px'}>
-          <Store />
+          <iframe src='https://v1.embednotion.com/embed/8a229a0d4214465da9f353d5ca37610a'></iframe>
         </Box>
       </LayoutGroup>
     </Box>

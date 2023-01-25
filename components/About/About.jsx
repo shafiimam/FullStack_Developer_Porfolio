@@ -38,7 +38,7 @@ export default function About() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef);
   useEffect(() => {
-    console.log('is in view', isInView);
+    // console.log('is in view', isInView);
     controls.start('animate');
   }, [isInView, controls]);
   return (

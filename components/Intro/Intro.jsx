@@ -68,7 +68,7 @@ export default function Intro() {
 
   useEffect(() => {
     return scrollY.onChange((latest) => {
-      console.log(latest);
+      // console.log(latest);
 
       if (latest < 600) {
         controls.start('visible');
