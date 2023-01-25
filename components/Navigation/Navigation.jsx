@@ -139,9 +139,6 @@ export default function Navigation() {
                 </motion.div>
               );
             })}
-            <Box className='socials'>
-              <AiFillGithub />
-            </Box>
             {colorMode === 'light' ? (
               <DarkIcon toggleColorMode={toggleColorMode} />
             ) : (
